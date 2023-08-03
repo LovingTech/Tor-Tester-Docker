@@ -28,6 +28,10 @@ To correctly setup the current time command simply set the timezoen varible in t
 ```
 docker run -e "TZ=Australia/Sydney" tortester
 ```
+Additionally there is an sleep function built into the docker which by default is off. To use it, use the environment function "SLEEP" the sleep time is in seconds. Here is an example
+```
+docker run -e "TZ=Australia/Sydney" -e "SLEEP=5" tortester
+```
 
 # Sample Compose File
 I have provided a sample compose file that demostrates the container operating successfully. 
