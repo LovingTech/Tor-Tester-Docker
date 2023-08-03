@@ -1,7 +1,25 @@
-version: "3"
+version: '3'
 
 services:
   tortester:
-   build: ./
-   environment:
-     - TZ=Australia/Sydney
+    image: tortester
+    networks:
+      - backend
+    environment:
+      - TZ=Australia/Sydney
+      - HTTP_PROXY=http://torgateway:8118
+      - HTTPS_PROXY=http://torgateway:8118
+
+  torgateway:
+    image: dperson/torproxy
+    networks:
+      - backend
+      - default
+    environment:
+      - TOR_NewCircuitPeriod=400
+    restart: "unless-stopped"
+
+networks:
+  backend:
+   driver: "bridge"
+   internal: true

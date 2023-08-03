@@ -29,4 +29,5 @@ To correctly setup the current time command simply set the timezoen varible in t
 docker run -e "TZ=Australia/Sydney" tortester
 ```
 
-I will also be including a docker-compose file as it makes operation simple.
+# Sample Compose File
+I have provided a sample compose file that demostrates the container operating successfully. 
